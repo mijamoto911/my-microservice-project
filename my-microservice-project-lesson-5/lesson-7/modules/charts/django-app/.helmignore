@@ -1,0 +1,25 @@
+cd /Users/eduard/web/my-microservice-project/my-microservice-project-lesson-5/lesson-7/modules/charts/django-app
+
+cat > .helmignore << 'EOF'
+# Python/venv
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django код і локальні файли (ми НЕ тримаємо їх у каталозі чарта)
+app/
+manage.py
+Dockerfile
+docker-compose.yml
+.env
+
+# Інше
+.git/
+.gitignore
+.DS_Store
+node_modules/
+*.log
+EOF

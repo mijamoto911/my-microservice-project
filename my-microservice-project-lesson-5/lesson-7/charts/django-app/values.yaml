@@ -1,0 +1,27 @@
+image:
+  repository: 150867077103.dkr.ecr.us-east-1.amazonaws.com/lesson-7-django-app
+  tag: v1-amd64
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 8000
+
+ingress:
+  enabled: false
+
+config:
+  POSTGRES_PORT: '5432'
+  POSTGRES_HOST: 'db'
+  POSTGRES_USER: 'django_user'
+  POSTGRES_DB: 'django_db'
+  POSTGRES_PASSWORD: 'pass9764gd'
+  SECRET_KEY: 'django-insecure-u(qc9*j0w=ut5db3f#izfz_8szd7rruds!p8p5hgwz0in=+s7t'
+  DEBUG: 'False'
+  ALLOWED_HOSTS: 'localhost,.us-east-1.elb.amazonaws.com'
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
